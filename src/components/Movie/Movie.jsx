@@ -1,6 +1,9 @@
 import React from "react";
 
 function Movie({ Movie, setModalShow, SetMovieToModal, MoviesList }) {
+  const fileSize = "/w500";
+  const imgUrl = "https://image.tmdb.org/t/p" + fileSize + Movie.poster_path;
+
   const handleClick = (e) => {
     setModalShow(true);
 
@@ -11,12 +14,7 @@ function Movie({ Movie, setModalShow, SetMovieToModal, MoviesList }) {
   };
   return (
     <div>
-      <img
-        onClick={handleClick}
-        id={Movie.id}
-        src={Movie.poster_path}
-        alt={Movie.title}
-      />
+      <img onClick={handleClick} id={Movie.id} src={imgUrl} alt={Movie.title} />
     </div>
   );
 }
