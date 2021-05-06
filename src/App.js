@@ -9,18 +9,13 @@ import MyVerticallyCenteredModal from "./components/Modal/Modal";
 
 const axios = require("axios").default;
 
+const baseURL = "https://api.themoviedb.org/3/movie/";
 const apiKey = "d31155cbf820bd18cd5b553ec0cb5b0f";
-const movieID = 21;
-let url =
-  "https://api.themoviedb.org/3/movie/" +
-  movieID.toString() +
-  "?api_key=" +
-  apiKey;
-
 let number = "1";
-const url2 =
-  "https://api.themoviedb.org/3/movie/popular?api_key=d31155cbf820bd18cd5b553ec0cb5b0f&language=en-US&page=" +
-  number;
+
+const MovieURL =
+  baseURL + "popular?api_key=" + apiKey + "&language=en-US&page=" + number;
+
 function App() {
   const [textValue, SetTextValue] = useState("");
   const [starsValue, SetStarsValue] = useState("0");
@@ -30,8 +25,7 @@ function App() {
   const [MoviesList, Setmovies] = useState([]);
 
   useEffect(() => {
-    axios.get(url2).then((response) => {
-      // Setmovies([...MoviesList, response.data]);
+    axios.get(MovieURL).then((response) => {
       Setmovies(response.data.results);
     });
   }, []);
