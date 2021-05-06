@@ -29,7 +29,7 @@ function App() {
     axios.get(MovieURL).then((response) => {
       Setmovies(response.data.results);
     });
-  }, [number]);
+  }, [MovieURL]);
 
   return (
     <div className="App">
