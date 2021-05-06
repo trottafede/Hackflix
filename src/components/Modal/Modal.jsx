@@ -31,10 +31,13 @@ function MyVerticallyCenteredModal(props) {
           <div>
             <p>{movie.overview}</p>
           </div>
+          <div>
+            <p>{movie.vote_average}</p>
+          </div>
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={props.onHide}>Cerrar</Button>
       </Modal.Footer>
     </Modal>
   );
