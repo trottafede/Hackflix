@@ -23,7 +23,7 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Body>
         <div className="d-flex flex-column justify-content-center ">
           <div className="d-flex justify-content-center ">
-            <img src={movie.poster_path} />
+            <img alt={movie.original_title} src={movie.poster_path} />
           </div>
           <div>
             <h4 className="text-center"> {movie.original_title} </h4>
