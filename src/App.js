@@ -19,17 +19,47 @@ function App() {
 
   const baseURL = "https://api.themoviedb.org/3/movie/";
   const apiKey = "d31155cbf820bd18cd5b553ec0cb5b0f";
+
   const [number, SetNumber] = useState(1);
 
   const [MovieURL, SetMovieURL] = useState(
     baseURL + "popular?api_key=" + apiKey + "&language=en-US&page=" + number
   );
 
+  // function axiosCall() {
+  //   axios.get(MovieURL).then((response) => {
+  //     Setmovies(response.data.results);
+  //   });
+  // }
+
   useEffect(() => {
     axios.get(MovieURL).then((response) => {
-      Setmovies(response.data.results);
+      // Setmovies(response.data.results);
+      Setmovies((MoviesList) => [...MoviesList, ...response.data.results]);
     });
   }, [MovieURL]);
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", () => {
+  //     if (
+  //       window.innerHeight + Math.ceil(window.pageYOffset) >=
+  //       document.body.offsetHeight
+  //     ) {
+  //       SetNumber(number + 1);
+  //       SetMovieURL(
+  //         baseURL +
+  //           "popular?api_key=" +
+  //           apiKey +
+  //           "&language=en-US&page=" +
+  //           (number + 1)
+  //       );
+
+  //       axios.get(MovieURL).then((response) => {
+  //         Setmovies((MoviesList) => [...MoviesList, ...response.data.results]);
+  //       });
+  //     }
+  //   });
+  // });
 
   return (
     <div className="App">
