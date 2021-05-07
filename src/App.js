@@ -23,6 +23,7 @@ function App() {
     baseURL + "popular?api_key=" + apiKey + "&language=en-US&page=" + number
   );
   console.log("Por qué miras mi consola?!");
+
   useEffect(() => {
     axios.get(MovieURL).then((response) => {
       Setmovies((MoviesList) => [...MoviesList, ...response.data.results]);
@@ -35,13 +36,13 @@ function App() {
         window.innerHeight + Math.ceil(window.pageYOffset) >=
         document.body.offsetHeight
       ) {
-        SetNumber(number + 1);
+        SetNumber(number + 10);
         SetMovieURL(
           baseURL +
             "popular?api_key=" +
             apiKey +
             "&language=en-US&page=" +
-            (number + 1)
+            (number + 0)
         );
       }
     };
