@@ -26,40 +26,26 @@ function App() {
     baseURL + "popular?api_key=" + apiKey + "&language=en-US&page=" + number
   );
 
-  // function axiosCall() {
-  //   axios.get(MovieURL).then((response) => {
-  //     Setmovies(response.data.results);
-  //   });
-  // }
-
   useEffect(() => {
     axios.get(MovieURL).then((response) => {
-      // Setmovies(response.data.results);
       Setmovies((MoviesList) => [...MoviesList, ...response.data.results]);
     });
   }, [MovieURL]);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", () => {
-  //     if (
-  //       window.innerHeight + Math.ceil(window.pageYOffset) >=
-  //       document.body.offsetHeight
-  //     ) {
-  //       SetNumber(number + 1);
-  //       SetMovieURL(
-  //         baseURL +
-  //           "popular?api_key=" +
-  //           apiKey +
-  //           "&language=en-US&page=" +
-  //           (number + 1)
-  //       );
-
-  //       axios.get(MovieURL).then((response) => {
-  //         Setmovies((MoviesList) => [...MoviesList, ...response.data.results]);
-  //       });
-  //     }
-  //   });
-  // });
+  useEffect(() => {
+    window.onscroll = () => {
+      if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+        SetNumber(number + 1);
+        SetMovieURL(
+          baseURL +
+            "popular?api_key=" +
+            apiKey +
+            "&language=en-US&page=" +
+            (number + 1)
+        );
+      }
+    };
+  }, [number]);
 
   return (
     <div className="App">
