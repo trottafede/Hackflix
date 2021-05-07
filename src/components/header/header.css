@@ -18,9 +18,7 @@ h2 {
 
 #bgImage {
   background-image: url(https://images4.alphacoders.com/877/thumb-1920-877960.jpg);
-  background-repeat: no-repeat;
-  height: 300px;
+  height: 25rem;
   background-size: cover;
   background-position: center;
-  margin-bottom: 20px;
 }

@@ -2,11 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 import Movies from "./components/Movie/MovieList";
-
 import Header from "./components/header/Header";
 import MyVerticallyCenteredModal from "./components/Modal/Modal";
-
-import Pagination from "./components/Pagination/Pagination";
 const axios = require("axios").default;
 
 function App() {
@@ -25,7 +22,7 @@ function App() {
   const [MovieURL, SetMovieURL] = useState(
     baseURL + "popular?api_key=" + apiKey + "&language=en-US&page=" + number
   );
-  console.log("Por qué miras mi concola?!");
+  console.log("Por qué miras mi consola?!");
   useEffect(() => {
     axios.get(MovieURL).then((response) => {
       Setmovies((MoviesList) => [...MoviesList, ...response.data.results]);
@@ -34,7 +31,10 @@ function App() {
 
   useEffect(() => {
     window.onscroll = () => {
-      if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+      if (
+        window.innerHeight + Math.ceil(window.pageYOffset) >=
+        document.body.offsetHeight
+      ) {
         SetNumber(number + 1);
         SetMovieURL(
           baseURL +
@@ -59,16 +59,10 @@ function App() {
         setModalShow={setModalShow}
         SetMovieToModal={SetMovieToModal}
       />
-
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         movie={movieToModal}
-      />
-      <Pagination
-        SetMovieURL={SetMovieURL}
-        number={number}
-        SetNumber={SetNumber}
       />
     </div>
   );

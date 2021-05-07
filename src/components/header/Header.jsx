@@ -5,13 +5,11 @@ function Header({ SetTextValue, SetStarsValue }) {
   const handleInput = (event) => {
     let movie = event.target.value.toLowerCase();
     SetStarsValue("0");
-
     SetTextValue(movie);
   };
 
   const handleStars = (stars) => {
     SetTextValue("");
-
     SetStarsValue(stars.target.id);
   };
 
@@ -72,7 +70,7 @@ function Header({ SetTextValue, SetStarsValue }) {
             <h1>¡Tus peliculas favoritas!</h1>
             <h2>Buscá la que quieras ver!</h2>
             <input
-              className=" form-control mt-3"
+              className=" form-control mt-5"
               placeholder="Busque su pelicula"
               type="text"
               name=""
