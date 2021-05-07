@@ -25,7 +25,7 @@ function App() {
   const [MovieURL, SetMovieURL] = useState(
     baseURL + "popular?api_key=" + apiKey + "&language=en-US&page=" + number
   );
-
+  console.log("Por qué miras mi concola?!");
   useEffect(() => {
     axios.get(MovieURL).then((response) => {
       Setmovies((MoviesList) => [...MoviesList, ...response.data.results]);

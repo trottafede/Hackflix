@@ -13,7 +13,7 @@ function Movie({ Movie, setModalShow, SetMovieToModal, MoviesList }) {
     SetMovieToModal(result);
   };
   return (
-    <div>
+    <div className="movie">
       <img onClick={handleClick} id={Movie.id} src={imgUrl} alt={Movie.title} />
     </div>
   );
