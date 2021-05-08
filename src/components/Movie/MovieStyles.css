@@ -10,6 +10,12 @@ img {
   object-fit: cover;
   max-width: 30%;
 }
+
+.movie {
+  object-fit: cover;
+  max-width: 100%;
+}
+
 .movie img:hover {
   z-index: 100;
   position: relative;

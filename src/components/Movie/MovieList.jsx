@@ -1,13 +1,8 @@
 import "./MovieStyles.css";
 import Movie from "./Movie";
+import Spinner from "react-bootstrap/Button";
 
-function Movies({
-  MoviesList,
-  textValue,
-  starsValue,
-  setModalShow,
-  SetMovieToModal,
-}) {
+function Movies({ MoviesList, textValue, starsValue, isLoading }) {
   const FilteredMovieByRating = MoviesList.filter(
     (movie) => movie.vote_average >= starsValue
   );
@@ -15,12 +10,13 @@ function Movies({
   const filteredOutputByRating = FilteredMovieByRating.map((movie) => {
     return (
       <div className="col-xxl-2 col-xl-3 col-sm-3 " key={movie.id}>
-        <Movie
-          SetMovieToModal={SetMovieToModal}
-          setModalShow={setModalShow}
-          Movie={movie}
-          MoviesList={MoviesList}
-        />
+        {!isLoading ? (
+          <Movie Movie={movie} MoviesList={MoviesList} />
+        ) : (
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        )}
       </div>
     );
   });
@@ -28,12 +24,13 @@ function Movies({
   const allMoviesTogether = MoviesList.map((movie) => {
     return (
       <div className="col-xxl-2 col-xl-3 col-sm-3 " key={movie.id}>
-        <Movie
-          SetMovieToModal={SetMovieToModal}
-          setModalShow={setModalShow}
-          Movie={movie}
-          MoviesList={MoviesList}
-        />
+        {!isLoading ? (
+          <Movie Movie={movie} MoviesList={MoviesList} />
+        ) : (
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        )}
       </div>
     );
   });
@@ -45,12 +42,13 @@ function Movies({
   const filteredOutputByText = FilteredMovieByTextValue.map((movie) => {
     return (
       <div className="col-xxl-2 col-xl-3 col-sm-3 " key={movie.id}>
-        <Movie
-          SetMovieToModal={SetMovieToModal}
-          setModalShow={setModalShow}
-          Movie={movie}
-          MoviesList={MoviesList}
-        />
+        {!isLoading ? (
+          <Movie Movie={movie} MoviesList={MoviesList} />
+        ) : (
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        )}
       </div>
     );
   });

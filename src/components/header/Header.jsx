@@ -1,5 +1,6 @@
 import React from "react";
 import "./header.css";
+import { NavLink } from "react-router-dom";
 
 function Header({ SetTextValue, SetStarsValue }) {
   const handleInput = (event) => {
@@ -57,12 +58,13 @@ function Header({ SetTextValue, SetStarsValue }) {
       <div id="bgImage">
         <nav className="navbar navbar-light bg-transparent">
           <div className="container">
-            <a className="navbar-brand" href="/home">
+            <a href="/">
               <span className=" white">Hackflix</span>
             </a>
-            <a className="navbar-brand" href="/home">
-              <span className=" white">Home</span>
-            </a>
+
+            <NavLink exact activeClassName="active" to="/">
+              Home
+            </NavLink>
           </div>
         </nav>
         <div className="d-flex justify-content-center">
