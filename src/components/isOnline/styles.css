@@ -1,0 +1,20 @@
+.online {
+  font: 1em sans-serif;
+  padding: 2em 0.5em 0.5em;
+  width: 5%;
+  position: sticky;
+
+  color: #fff;
+  background: green;
+}
+
+.offline {
+  font: 1em sans-serif;
+  padding: 2em 0.5em 0.5em;
+
+  width: 5%;
+  position: sticky;
+
+  color: #fff;
+  background: red;
+}
